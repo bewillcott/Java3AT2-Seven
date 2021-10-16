@@ -11,14 +11,14 @@ to upload the CSV file to a back-end server.
 
 This project consists of three sub-projects/modules:
 
-- GUIClient
-- SocketServer
-- Common
+- [GUIClient][gc]
+- [SocketServer][ss]
+- [Common][c]
 
 ### GUI Client
 
 **Note:** The original source code for this project was imported from
-another of my projects: **Java3AT2-Six**.
+another of my projects: [**Java3AT2-Six**][jas].
 
 This application allows the user to perform the following functions:
 
@@ -40,7 +40,7 @@ dates when columns are sorted.
 ### Socket Server
 
 **Note:** The original source code for this project was imported from
-another of my projects: **Java3AT2-Four**.
+another of my projects: [**Java3AT2-Four**][jaf].
 
 This server application **will** provide file transfer functionality.
 **Work-in-progress**
@@ -48,9 +48,13 @@ This server application **will** provide file transfer functionality.
 ### Common Library
 
 **Note:** The original source code for this project was imported from
-another of my projects: **Java3AT2-Four**.
+another of my projects: [**Java3AT2-Four**][jaf].
 
 This is a non-executable jar, containing a collection of classes that are in 
 'common' use across multiple projects.
 
-
+[gc]:GUIClient
+[ss]:SocketServer
+[c]:Common
+[jas]:https://github.com/bewillcott/Java3AT2-Six
+[jaf]:https://github.com/bewillcott/Java3AT2-Four
