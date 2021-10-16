@@ -1,6 +1,3 @@
-/target/
+**/target/
 /Snapshots/
 *.csv
-/SocketServer/nbproject/
-/SocketServer/target/
-/Common/target/

@@ -17,7 +17,7 @@
         the CSV file to a back-end server.</description>
 
     <properties>
-        <jar.manifest.mainClass>com.bewsoftware.tafe.java3.at2.seven.Main</jar.manifest.mainClass>
+        <jar.manifest.mainClass>com.bewsoftware.tafe.java3.at2.seven.gui.Main</jar.manifest.mainClass>
     </properties>
 
     <dependencies>

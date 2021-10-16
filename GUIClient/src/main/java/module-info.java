@@ -43,6 +43,6 @@ module Java3AT2Six {
     requires com.opencsv;
     requires CommonLibrary;
 
-    opens com.bewsoftware.tafe.java3.at2.six to javafx.graphics;
-    opens com.bewsoftware.tafe.java3.at2.six.view to javafx.fxml, javafx.graphics;
+    opens com.bewsoftware.tafe.java3.at2.seven.gui to javafx.graphics;
+    opens com.bewsoftware.tafe.java3.at2.seven.gui.view to javafx.fxml, javafx.graphics;
 }
