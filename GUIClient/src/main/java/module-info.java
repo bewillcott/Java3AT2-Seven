@@ -32,7 +32,7 @@
  * @since 1.0
  * @version 1.0
  */
-module Java3AT2Six {
+module Java3AT2Seven {
     requires javafx.controls;
     requires javafx.fxml;
     requires transitive javafx.graphics;
