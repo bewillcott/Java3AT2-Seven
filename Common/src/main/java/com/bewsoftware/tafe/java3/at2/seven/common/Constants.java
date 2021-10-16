@@ -59,7 +59,7 @@ public class Constants
     /**
      * SocketServer port number.
      */
-    public static final int SERVER_PORT = 9010;
+    public static final int SERVER_PORT = 4445;
 
     /**
      * Title indent.

@@ -26,14 +26,20 @@
 
 package com.bewsoftware.tafe.java3.at2.seven.server.socket;
 
-import java.io.BufferedReader;
+import com.bewsoftware.tafe.java3.at2.seven.common.CSVFileEvent;
+import java.io.File;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintStream;
+import java.io.ObjectInputStream;
+import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 import static com.bewsoftware.tafe.java3.at2.seven.common.Constants.*;
+import static java.nio.file.StandardOpenOption.CREATE;
+import static java.nio.file.StandardOpenOption.TRUNCATE_EXISTING;
+import static java.nio.file.StandardOpenOption.WRITE;
 
 /**
  * The Socket Server handles the back-end side of the Chat echo service.
@@ -63,7 +69,6 @@ public class Server
 
             while (serverAlive)
             {
-
                 try (Socket clientSocket = serverSocket.accept())
                 { // wait, listen and accept connection
                     sessionNumber++;
@@ -72,67 +77,40 @@ public class Server
 
                     log("[%1$d] Connected from %2$s on #%3$d", sessionNumber, clientHostName, clientPortNumber);
 
-                    try (
-                            // input stream from client
-                            BufferedReader inStream = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-                            // output stream to client
-                            PrintStream outStream = new PrintStream​(clientSocket.getOutputStream(), true);)
+                    try (ObjectInputStream inputStream = new ObjectInputStream(clientSocket.getInputStream());)
                     {
-                        boolean sessionOpen = true;
+                        CSVFileEvent fileEvent = (CSVFileEvent) inputStream.readObject();
 
-                        // Notify client of connection success.
-                        String msg = "[" + sessionNumber + "] You have connect to Chat server " + VERSION + "";
-                        outStream.println(msg); // send a message to client
+                        Path filePath = Path.of(fileEvent.getDestinationDirectory(),
+                                fileEvent.getFilename());
 
-                        while (sessionOpen)
-                        { // chatting loop
-                            String inLine = inStream.readLine(); // read a line from client
-                            log("[%1$d] Received from client: %2$s", sessionNumber, inLine);
+                        if (!new File(fileEvent.getDestinationDirectory()).exists())
+                        {
+                            new File(fileEvent.getDestinationDirectory()).mkdirs();
+                        }
 
-                            if (inLine == null)
+                        try (PrintWriter fileWriter = new PrintWriter(
+                                Files.newBufferedWriter(filePath, CREATE, WRITE,
+                                        TRUNCATE_EXISTING)))
+                        {
+                            for (String line : fileEvent.getFileData())
                             {
-                                log("[%1$d] Client disconnected uncleanly!", sessionNumber);
-                                log("%1$s\n", LINE);
-                                sessionOpen = false;
-                            } else
-                            {
-
-//                                switch (inLine)
-//                                {
-//                                    case DISCONNECT_SESSION ->
-//                                    {
-//                                        log("[%1$d] Client closed session.", sessionNumber);
-//                                        log("%1$s\n", LINE);
-//                                        sessionOpen = false;
-//                                    }
-//
-//                                    case TERMINATE_SERVER ->
-//                                    {
-//                                        log("[%1$d] Client Terminated Server!!!", sessionNumber);
-//                                        log("%1$s\n", DOUBLE_LINE);
-                                sessionOpen = false;
-                                serverAlive = false;
-//                                        // disconnect
-//                                    }
-//
-//                                    default ->
-//                                    {
-//                                    }
-//                                }
-                                // if the client sends disconnect string, then stop
-                                // if the client sends terminate server string, then shutdown
-
-                                // Reply to client
-                                String outLine = "[" + sessionNumber + "] You said '" + inLine + "'";
-                                outStream.println(outLine); // send a message to client
+                                fileWriter.println(line);
                             }
                         }
+
+                        log("Successfully saved incoming file to: %1$s", filePath);
+
+                    } catch (ClassNotFoundException ex)
+                    {
+                        log("%1$s", ex);
+                        serverAlive = false;
                     }
                 }
             }
-        } catch (IOException e)
+        } catch (IOException ex)
         {
-            log("IOException occurred: \n%1$s", e);
+            log("IOException occurred: \n%1$s", ex);
         }
     }
 }
