@@ -1,5 +1,5 @@
 
-# Java3 AT2 Question 
+# Java3 AT2 Question 7
 This is a TAFE assignment for the Diploma in Software Development,
 at the South Metropolitan TAFE, Rockingham, Western Australia.
 
