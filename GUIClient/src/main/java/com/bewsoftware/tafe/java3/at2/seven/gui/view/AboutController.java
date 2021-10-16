@@ -43,14 +43,38 @@ import static com.bewsoftware.tafe.java3.at2.seven.common.Constants.VERSION;
 public class AboutController
 {
 
+    private static final String COPYRIGHT
+            = "    This program is free software: you can redistribute it and/or "
+            + "modify it under the terms of the GNU General Public License as "
+            + "published by the Free Software Foundation, either version 3 of "
+            + "the License, or (at your option) any later version.\n\n"
+            + "    This program is distributed in the hope that it will be useful, "
+            + "but WITHOUT ANY WARRANTY; without even the implied warranty of "
+            + "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU "
+            + "General Public License for more details.\n\n"
+            + "    You should have received a copy of the GNU General Public "
+            + "License along with this program.  If not, see "
+            + "<http://www.gnu.org/licenses/>.\n";
+
+    private static final String COPYRIGHT_NOTICE
+            = "Copyright (c) 2021 Bradley Willcott";
+
     private static final String DESCRIPTION
             = "This program was developed for my Diploma in Software Developement "
             + "at the South Metrolpolitan TAFE, Rockingham WA.\n\n"
             + "This application reads any CSV file and displays its "
-            + "contents inside a table.\n";
+            + "contents inside a table.  "
+            + "Further, it provides the option to upload "
+            + "the CSV file to a back-end server.\n";
 
     @FXML
     private Label buildDateLabel;
+
+    @FXML
+    private Label copyrightLabel;
+
+    @FXML
+    private TextArea copyrightTextArea;
 
     @FXML
     private TextArea descriptionTextArea;
@@ -82,5 +106,7 @@ public class AboutController
         verionLabel.setText(VERSION);
         buildDateLabel.setText(BUILD_DATE);
         descriptionTextArea.setText(DESCRIPTION);
+        copyrightLabel.setText(COPYRIGHT_NOTICE);
+        copyrightTextArea.setText(COPYRIGHT);
     }
 }

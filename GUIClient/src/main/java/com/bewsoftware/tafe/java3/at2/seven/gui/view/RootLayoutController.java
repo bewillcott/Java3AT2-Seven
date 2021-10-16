@@ -49,6 +49,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
+import static com.bewsoftware.tafe.java3.at2.seven.common.Constants.log;
 import static com.bewsoftware.tafe.java3.at2.seven.gui.util.Views.BLANK;
 import static com.bewsoftware.tafe.java3.at2.seven.gui.util.Views.CSVTABLE;
 import static javafx.scene.control.ButtonType.NO;
@@ -101,6 +102,9 @@ public class RootLayoutController implements ViewController
     private MenuItem saveMenuItem;
 
     @FXML
+    private MenuItem uploadMenuItem;
+
+    @FXML
     private Label statusLabel;
 
     /**
@@ -139,6 +143,7 @@ public class RootLayoutController implements ViewController
                     {
                         openMenuItem.setDisable(true);
                         closeMenuItem.setDisable(false);
+                        uploadMenuItem.setDisable(false);
                     }
 
                     default ->
@@ -159,6 +164,7 @@ public class RootLayoutController implements ViewController
                         {
                             openMenuItem.setDisable(false);
                             closeMenuItem.setDisable(true);
+                            uploadMenuItem.setDisable(true);
                         }
 
                         default ->
@@ -325,6 +331,19 @@ public class RootLayoutController implements ViewController
     }
 
     /**
+     * Handle the File/Upload menu item event.
+     *
+     * @param event
+     */
+    @FXML
+    private void handleUploadMenuItem(ActionEvent event)
+    {
+//        app.saveFile(app.getFileName());
+        log("You selected to Upload this file: %1$s", app.getFileName());
+        event.consume();
+    }
+
+    /**
      * Controller initialization.
      */
     @FXML
@@ -333,6 +352,7 @@ public class RootLayoutController implements ViewController
         closeMenuItem.setDisable(true);
         saveMenuItem.setDisable(true);
         saveAsMenuItem.setDisable(true);
+        uploadMenuItem.setDisable(true);
     }
 
     /**
