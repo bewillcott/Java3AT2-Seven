@@ -1,3 +1,4 @@
 **/target/
 /Snapshots/
 *.csv
+/GUIClient/nbproject/
