@@ -204,10 +204,7 @@ public class RootLayoutController implements ViewController
 
             case App.PROP_DATAISDIRTY ->
             {
-                boolean value = (boolean) evt.getNewValue();
-
-                saveMenuItem.setDisable(!value);
-                saveMenuItem.setDisable(value);
+                saveMenuItem.setDisable(!(boolean) evt.getNewValue());
             }
 
             case App.PROP_FILENAME ->
