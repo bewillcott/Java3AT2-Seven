@@ -26,7 +26,6 @@ This application allows the user to perform the following functions:
 - Edit the data in the table.
 - Save the modified data to a local file.
 - Upload the data to a remote file, via the Socket Server.
-  - **Work-in-progress**
 
 Minimum specification for compatible CSV files:
 
@@ -42,8 +41,9 @@ dates when columns are sorted.
 **Note:** The original source code for this project was imported from
 another of my projects: [**Java3AT2-Four**][jaf].
 
-This server application **will** provide file transfer functionality.
-**Work-in-progress**
+This server application provides basic file transfer functionality.  It will
+only receive CSV files, storing them on the local file system.
+
 
 ### Common Library
 

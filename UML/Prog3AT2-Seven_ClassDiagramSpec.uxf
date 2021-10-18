@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <help_text/>
+  <zoom_level>11</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>968</x>
+      <y>77</y>
+      <w>198</w>
+      <h>77</h>
+    </coordinates>
+    <panel_attributes>valign=center
+
+Copyright © 2021
+-
+Name: Bradley Willcott
+ID:   M198449
+Date: 18 October 2021
+
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>550</x>
+      <y>0</y>
+      <w>341</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+fontsize=16
+lw=2
+
+*Java3 AT2 Seven*
+Specification
+v1.0
+
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>770</x>
+      <y>198</y>
+      <w>451</w>
+      <h>451</h>
+    </coordinates>
+    <panel_attributes>Common Library
+--
+bg=orange
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>803</x>
+      <y>253</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+AvlTree
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>803</x>
+      <y>352</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+LinkedList
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>297</x>
+      <y>198</y>
+      <w>451</w>
+      <h>539</h>
+    </coordinates>
+    <panel_attributes>GUI Client
+--
+bg=orange
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>253</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+App
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>352</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+RootLayoutController
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>253</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+FTClient
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>352</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+AboutController
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>451</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVTableController
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLPackage</id>
+    <coordinates>
+      <x>770</x>
+      <y>682</y>
+      <w>451</w>
+      <h>154</h>
+    </coordinates>
+    <panel_attributes>Socket Server
+--
+bg=orange
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>803</x>
+      <y>737</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+Server
+--
+
+--
+
+
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1012</x>
+      <y>253</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVFile
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1012</x>
+      <y>352</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVFileEvent
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1012</x>
+      <y>451</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVRow
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>803</x>
+      <y>451</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+Ref
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>803</x>
+      <y>550</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+Constants
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>451</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+EditFormController
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>550</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+BlankController
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>550</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=gray
+layer=1
+&lt;&lt;interface&gt;&gt;
+ViewController
+--
+--
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>330</x>
+      <y>638</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+&lt;&lt;enumeration&gt;&gt;
+Views
+--
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1012</x>
+      <y>550</y>
+      <w>187</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+ReindexFailedException
+--
+
+--
+
+
+group=9</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>539</x>
+      <y>638</y>
+      <w>176</w>
+      <h>66</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+Main
+--
+
+--
+
+
+group=10</panel_attributes>
+    <additional_attributes/>
+  </element>
+</diagram>

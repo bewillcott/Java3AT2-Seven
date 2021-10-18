@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>30</y>
+      <w>310</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+fontsize=16
+lw=2
+
+*Java3 AT2 Seven*
+Common Library Specification
+v1.0
+
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>970</x>
+      <y>100</y>
+      <w>180</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>valign=center
+
+Copyright © 2021
+-
+Name: Bradley Willcott
+ID:   M198449
+Date: 18 October 2021
+
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>300</x>
+      <y>300</y>
+      <w>270</w>
+      <h>280</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+AvlTree&lt;E extends Comparable&lt;E&gt;&gt;
+--
+- count : int
+- root : Node&lt;E&gt;
+
+--
++ AvlTree()
+
++ add(e:E) : boolean
++ clear() : void
++ contains(o:Object) : boolean
++ delete(target:E) : boolean
++ display() : void
++ get(index:int) : E
++ indexOf(o:Object) : int
++ isEmpty() : boolean
++ iterator() : Iterator&lt;E&gt;
++ remove(o:Object) : boolean
++ size() : int
++ toArray(a:T[]) : T[]
++ toString() : String
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>590</x>
+      <y>300</y>
+      <w>280</w>
+      <h>360</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+LinkedList&lt;E&gt;
+--
+- allowDuplicates : boolean
+- current : Node&lt;E&gt;
+- first : Node&lt;E&gt;
+- last : Node&lt;E&gt;
+- size : int
+
+--
++ LinkedList()
++ linkedList(allowDuplicate:boolean)
+
++ add(item:E) : boolean
++ clear() : void
++ contains(item:E) : boolean
++ first() : E
++ get(item:E) : E
++ hasNext() : boolean
++ insert(item:E) : boolean
++ insertAfter(item:E) : boolean
++ iterator() : Iterator&lt;E&gt;
++ last() : E
++ next(item:E) : boolean
++ next() : E
++ remove() : E
++ size() : int
++ toString() : String
+
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>790</y>
+      <w>300</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVFile
+--
+- fileName : String
+- header : CSVRow
+- rows : LinkedList&lt;CSVrow&gt;
+--
++ CSVFile(fileName:String)
+
++ add(row:CSVRow) : boolean
++ getHeader() : String
++ hasHeader() : boolean
++ iterator() : Iterator&lt;CSVRow&gt;
++ readData(hasHeader:boolean) : boolean
++ setHeader(array:String[]) : void
++ writeData() : boolean
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>820</x>
+      <y>710</y>
+      <w>200</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>java.lang.Iterable&lt;CSVRow&gt;
+
+group=2</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>730</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=2</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>360</x>
+      <y>220</y>
+      <w>140</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>java.util.Set&lt;E&gt;
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>420</x>
+      <y>240</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>550</x>
+      <y>180</y>
+      <w>180</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>java.io.Externalizable
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>730</x>
+      <y>180</y>
+      <w>180</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>java.lang.Iterable&lt;E&gt;
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>200</y>
+      <w>120</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;100.0;60.0;100.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>200</y>
+      <w>120</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=4</panel_attributes>
+    <additional_attributes>100.0;10.0;100.0;60.0;10.0;60.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>290</x>
+      <y>1090</y>
+      <w>450</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVFileEvent
+--
+- destinationDirectory : String
+- fileData : String
+- filename : String
+- sourceDirectory : String
+
+--
++ CSVFileEvent()
+
++ getDestinationDirectory() : String
++ setDestinationDirectory(destinationDirectoryString) : void
++ getFileData() : String
++ setFileData(fileData:String) : void
++ getFilename() : String
++ setFilename(filename:String) : void
++ getSourceDirectory() : String
++ setSourceDirectory(sourceDirectory:String) : void
+
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>430</x>
+      <y>1010</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>java.io.Serializable
+
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>500</x>
+      <y>1030</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=5</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>460</x>
+      <y>790</y>
+      <w>280</w>
+      <h>170</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVRow
+--
+--
+- CSVRow()
+
+_+ parse(data:String...) : CSVRow_
+_+ parseArray(data:String[]) : CSVRow_
+_+ parseCSV(csvString:String) : CSVRow_
+
++ compareTo(o:CSVRow) : int
++ equals(o:Object) : boolean
++ hashCode() : int
++ toString() : String
+
+
+group=8</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>380</x>
+      <y>710</y>
+      <w>220</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>java.util.ArrayList&lt;String&gt;
+group=8</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>480</x>
+      <y>730</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=8</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>610</x>
+      <y>680</y>
+      <w>220</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>java.lang.Comparable&lt;CSVRow&gt;
+
+group=8</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>700</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+group=8</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>890</x>
+      <y>300</y>
+      <w>330</w>
+      <h>200</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+&lt;&lt;utility&gt;
+Constants
+--
++ BUILD_DATE : String
++ DOUBLE_LINE = : String
++ LINE : String
++ PRODUCT_TITLE : String
++ SERVER_PORT : int
++ TITLE_INDENT : String
++ VERSION : String
+
+--
+- Constants()
+
+_+ log(message:String, args:Object...) : void_
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>770</x>
+      <y>1090</y>
+      <w>420</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+ReindexFailedException
+--
+
+--
++ ReindexFailedException()
++ ReindexFailedException(message:String)
++ ReindexFailedException(message:String, cause:Throwable)
++ ReindexFailedException(cause:Throwable)
+
+group=7</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>870</x>
+      <y>1020</y>
+      <w>220</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>java.lang.RuntimeException
+group=7</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>970</x>
+      <y>1040</y>
+      <w>30</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=7</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+</diagram>

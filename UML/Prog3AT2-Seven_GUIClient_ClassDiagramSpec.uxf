@@ -1,0 +1,645 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="14.3.0">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>180</y>
+      <w>180</w>
+      <h>70</h>
+    </coordinates>
+    <panel_attributes>valign=center
+
+Copyright © 2021
+-
+Name: Bradley Willcott
+ID:   M198449
+Date: 18 October 2021
+
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>520</x>
+      <y>110</y>
+      <w>310</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>valign=center
+halign=center
+fontsize=16
+lw=2
+
+*Java3 AT2 Seven*
+GUI Client Specification
+v1.0
+
+group=1</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>480</x>
+      <y>1320</y>
+      <w>360</w>
+      <h>490</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+RootLayoutController
+--
+- aboutMenuItem : MenuItem
+- app : App
+- closeMenuItem : MenuItem
+- currentView : Views
+- openMenuItem : MenuItem
+- saveAsMenuItem : MenuItem
+- saveMenuItem : MenuItem
+- statusLabel : Label
+- uploadMenuItem : MenuItem
+
+--
++ RootLayoutController()
+
+_- configureFileChooser(_
+_    fileChooser:FileChooser,_
+_    fileDialogType:FileDialogType,_
+_    filePath:Path_
+_) : void_
+
+- handleAboutMenuItem(event:ActionEvent) : void
+- handleCloseMenuItem(event:ActionEvent) : void
+- handleExitMenuItem(event:ActionEvent) : void
+- handleOpenMenuItem(event:ActionEvent) : void
+- handleSaveAsMenuItem(event:ActionEvent) : void
+- handleSaveMenuItem(event:ActionEvent) : void
+- handleUploadMenuItem(event:ActionEvent) : void
+- initialize() : void
+- showAboutDialog() : void
+
+{innerclass
+&lt;&lt;enumeration&gt;&gt;
+FileDialogType
+--
++ OPEN
++ SAVE_AS
+
+--
+
+innerclass}
+
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>980</x>
+      <y>330</y>
+      <w>250</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+AboutController
+--
+_- COPYRIGHT : String_
+_- COPYRIGHT_NOTICE : String_
+_- DESCRIPTION : String_
+
+- buildDateLabel : Label
+- copyrightLabel : Label
+- copyrightTextArea : TextArea
+- descriptionTextArea : TextArea
+- productLabel : Label
+- rootPane : GridPane
+- verionLabel : Label
+
+--
++ AboutController()
+
+- void initialize()
+
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>150</x>
+      <y>1650</y>
+      <w>200</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+&lt;&lt;utility&gt;&gt;
+FTClient
+--
+
+--
+- FTClient()
+
+_+ boolean sendFile(_
+_    filePath:Path,_
+_    destinationDir:String,_
+_    data:String,_
+_    host:String,_
+_    port:int_
+_)_
+
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>900</x>
+      <y>1320</y>
+      <w>220</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+BlankController
+--
+
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>330</y>
+      <w>520</w>
+      <h>470</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+App::Application
+--
+_+ ACTION_SAVEFILE : String_
+_+ ACTION_UPLOADFILE : String_
+_+ PROP_ACTIVEVIEW : String_
+_+ PROP_DATAISDIRTY : String_
+_+ PROP_FILENAME : String_
+_+ PROP_STATUSTEXT : String_
+
+- dataIsDirty : boolean
+- fileName : Path
+- primaryStage : Stage
+- propertyChangeSupport : PropertyChangeSupport
+- rootLayout : BorderPane
+- statusText : String
+- titleFileName : String
+
+--
+_+ main(args:String[]) : void_
+
++ App()
+
++ addPropertyChangeListener(listener:PropertyChangeListener) : void
++ setDataIsDirty(dataIsDirty:boolean) : void
++ getFileName() : Path
++ setFileName(fileName:Path) : void
++ getPrimaryStage() : Stage
++ setStatusText(statusText:String) : void
++ initRootLayout() : void
++ isDataDirty() : boolean
++ removePropertyChangeListener(listener:PropertyChangeListener) : void
++ saveFile(saveFile:Path) : void
++ showView(viewViews) : void
++ start(primaryStage:Stage) : void
++ uploadFile() : void
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>510</x>
+      <y>250</y>
+      <w>290</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>javafx.application.Application
+
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>270</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>530</x>
+      <y>870</y>
+      <w>220</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+Main
+--
+
+--
+_+ main(args:String[]) : void_
+
+
+
+group=4</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>630</x>
+      <y>790</y>
+      <w>60</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;
+group=4</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;80.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>560</x>
+      <y>1080</y>
+      <w>190</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>bg=gray
+layer=1
+&lt;&lt;interface&gt;&gt;
+ViewController
+--
+--
+/+ setApp(app:App) : void/
+/+ setFocus() : void/
+
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLInterface</id>
+    <coordinates>
+      <x>530</x>
+      <y>1000</y>
+      <w>260</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>java.beans.PropertyChangeListener
+
+group=3</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>1020</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=3</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>170</x>
+      <y>860</y>
+      <w>180</w>
+      <h>160</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+&lt;&lt;enumeration&gt;&gt;
+Views
+--
+_+ BLANK("Blank")_
+_+ CSVTABLE("CSVTable")_
+
++ label : String
+
+--
+- Views(label:String)
+
++ toString() : String
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>1150</y>
+      <w>380</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;360.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>650</x>
+      <y>1150</y>
+      <w>30</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>70</x>
+      <y>1320</y>
+      <w>370</w>
+      <h>270</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+CSVTableController
+--
+- anchorPane : AnchorPane
+- app : App
+- columns : ObservableList&lt;String&gt;
+- csvTableView : TableView&lt;ObservableList&lt;String&gt;&gt;
+- data : ObservableList&lt;ObservableList&lt;String&gt;&gt;
+- editFormController : EditFormController
+
+--
+- buildTableView() : void
+- loadCSVData(csvPath:Path) : void
+- saveCSVData(csvPath:Path) : void
+- saveCSVDataToString() : String
+- saveCSVDataToWriter(writer:Writer) : void
+
+- showEditFormDialog(
+    columns:ObservableList&lt;String&gt; ,
+    rowData:ObservableList&lt;String&gt; 
+) : void
+
+group=6</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>320</x>
+      <y>1150</y>
+      <w>360</w>
+      <h>190</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.</panel_attributes>
+    <additional_attributes>340.0;10.0;10.0;170.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>390</x>
+      <y>1930</y>
+      <w>530</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+EditFormController
+--
+_- PROP_UPDATE : String_
+
+- anchorPane : AnchorPane
+- cancelButton : Button
+- columns : ObservableList&lt;String&gt;
+- editPane : GridPane
+- fields : ArrayList&lt;MyTextField&gt;
+- propertyChangeSupport : PropertyChangeSupport
+- rowData : ObservableList&lt;String&gt;
+- update : boolean
+- updateButton : Button
+
+--
++ EditFormController()
+
++ addPropertyChangeListener(listener:PropertyChangeListener) : void
++ isUpdate() : boolean
++ removePropertyChangeListener(listener:PropertyChangeListener) : void
+
++ setData(
+    columns:ObservableList&lt;String&gt; ,
+    rowData:ObservableList&lt;String&gt; 
+) : void
+
+- setUpdate(value:boolean) : void
+- buildForm() : void
+- handleCancelButton(event:ActionEvent) : void
+- handleUpdateButton(event:ActionEvent) : void
+- updateRow() : void
+
+{innerclass
+_MyTextField_
+--
+- initialText : String
+
+--
++ MyTextField(string:String)
+
++ isChanged() : boolean
++ toString() : String
+
+innerclass}
+
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>960</x>
+      <y>2350</y>
+      <w>250</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>javafx.scene.control.TextField
+group=5</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>910</x>
+      <y>2360</y>
+      <w>70</w>
+      <h>30</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-
+group=5</panel_attributes>
+    <additional_attributes>50.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>90</x>
+      <y>330</y>
+      <w>250</w>
+      <h>260</h>
+    </coordinates>
+    <panel_attributes>bg=green
+transparency=0
+layer=1
+AboutController
+--
+_- COPYRIGHT : String_
+_- COPYRIGHT_NOTICE : String_
+_- DESCRIPTION : String_
+
+- buildDateLabel : Label
+- copyrightLabel : Label
+- copyrightTextArea : TextArea
+- descriptionTextArea : TextArea
+- productLabel : Label
+- rootPane : GridPane
+- verionLabel : Label
+
+
+--
++ AboutController()
+
+- initialize() : void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>240</x>
+      <y>1580</y>
+      <w>60</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;
+group=6</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>270</x>
+      <y>790</y>
+      <w>250</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;530.0;230.0;430.0;230.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>490</x>
+      <y>790</y>
+      <w>160</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>140.0;530.0;10.0;430.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>790</y>
+      <w>220</w>
+      <h>550</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>200.0;530.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>790</y>
+      <w>210</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;70.0;190.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>1010</y>
+      <w>60</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>250</x>
+      <y>1010</y>
+      <w>420</w>
+      <h>330</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;.
+&lt;&lt;use&gt;&gt;</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;190.0;400.0;190.0;400.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>1580</y>
+      <w>310</w>
+      <h>370</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m1=1
+m2=0..1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;280.0;260.0;280.0;260.0;350.0</additional_attributes>
+  </element>
+</diagram>
