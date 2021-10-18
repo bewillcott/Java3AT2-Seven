@@ -27,6 +27,7 @@
 package com.bewsoftware.tafe.java3.at2.seven.gui.view;
 
 import com.bewsoftware.tafe.java3.at2.seven.gui.App;
+import com.bewsoftware.tafe.java3.at2.seven.gui.util.FTClient;
 import com.bewsoftware.tafe.java3.at2.seven.gui.util.ViewController;
 import com.bewsoftware.tafe.java3.at2.seven.gui.util.Views;
 import com.opencsv.CSVReader;
@@ -36,6 +37,8 @@ import com.opencsv.CSVWriterBuilder;
 import com.opencsv.exceptions.CsvValidationException;
 import java.beans.PropertyChangeEvent;
 import java.io.IOException;
+import java.io.StringWriter;
+import java.io.Writer;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Arrays;
@@ -54,6 +57,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import static com.bewsoftware.tafe.java3.at2.seven.common.Constants.SERVER_PORT;
 import static com.bewsoftware.tafe.java3.at2.seven.common.Constants.log;
 import static com.bewsoftware.tafe.java3.at2.seven.gui.util.Views.CSVTABLE;
 import static java.nio.file.StandardOpenOption.CREATE;
@@ -114,6 +118,25 @@ public class CSVTableController implements ViewController
     {
         switch (evt.getPropertyName())
         {
+            case App.ACTION_SAVEFILE ->
+            {
+                saveCSVData((Path) evt.getNewValue());
+            }
+
+            case App.ACTION_UPLOADFILE ->
+            {
+                String dataString = saveCSVDataToString();
+
+                String msg = "Upload "
+                        + (FTClient.sendFile(
+                                (Path) evt.getNewValue(), "downloads",
+                                dataString, "localhost", SERVER_PORT
+                        )
+                        ? "Successful" : "FAILED!");
+
+                app.setStatusText(msg);
+            }
+
             case App.PROP_ACTIVEVIEW ->
             {
                 if ((Views) evt.getOldValue() == CSVTABLE)
@@ -129,11 +152,6 @@ public class CSVTableController implements ViewController
                     csvTableView.refresh();
                     editFormController = null;
                 }
-            }
-
-            case App.PROP_SAVEFILE ->
-            {
-                saveCSVData((Path) evt.getNewValue());
             }
 
             case EditFormController.PROP_UPDATE ->
@@ -248,21 +266,60 @@ public class CSVTableController implements ViewController
      */
     private void saveCSVData(final Path csvPath)
     {
-
-        try (CSVWriter csvWriter = (CSVWriter) new CSVWriterBuilder(
-                Files.newBufferedWriter(csvPath, CREATE, WRITE, TRUNCATE_EXISTING)).build())
+        try (Writer writer = Files.newBufferedWriter(csvPath, CREATE, WRITE, TRUNCATE_EXISTING))
         {
-            String[] cols = columns.toArray(new String[columns.size()]);
-            csvWriter.writeNext(cols, false);
-
-            String[] row = new String[cols.length];
-            data.forEach(oList -> csvWriter.writeNext(oList.toArray(row), false));
+            saveCSVDataToWriter(writer);
 
             app.setStatusText("Data saved to file");
             app.setDataIsDirty(false);
         } catch (IOException ex)
         {
-            Logger.getLogger(CSVTableController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(CSVTableController.class.getName())
+                    .log(Level.SEVERE, null, ex);
+        }
+
+    }
+
+    /**
+     * Save the data in CSV File format, to a String.
+     */
+    private String saveCSVDataToString()
+    {
+        String rtn = null;
+
+        try (StringWriter writer = new StringWriter())
+        {
+            saveCSVDataToWriter(writer);
+            rtn = writer.toString();
+
+        } catch (IOException ex)
+        {
+            Logger.getLogger(CSVTableController.class.getName())
+                    .log(Level.SEVERE, null, ex);
+        }
+
+        return rtn;
+    }
+
+    /**
+     * Save the data to a Writer.
+     *
+     * @param writer to use
+     */
+    private void saveCSVDataToWriter(Writer writer)
+    {
+        try (CSVWriter csvWriter = (CSVWriter) new CSVWriterBuilder(writer).build())
+        {
+            String[] cols = columns.toArray(new String[columns.size()]);
+            csvWriter.writeNext(cols, false);
+
+            String[] row = new String[cols.length];
+            data.forEach(oList
+                    -> csvWriter.writeNext(oList.toArray(row), false));
+        } catch (IOException ex)
+        {
+            Logger.getLogger(CSVTableController.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
     }
 
@@ -272,7 +329,8 @@ public class CSVTableController implements ViewController
      * @param columns The CSV file header.
      * @param rowData The currently selected table row.
      */
-    private void showEditFormDialog(ObservableList<String> columns, ObservableList<String> rowData)
+    private void showEditFormDialog(ObservableList<String> columns,
+            ObservableList<String> rowData)
     {
         try
         {
@@ -303,8 +361,8 @@ public class CSVTableController implements ViewController
             dialogStage.showAndWait();
         } catch (IOException ex)
         {
-            Logger.getLogger(RootLayoutController.class
-                    .getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(RootLayoutController.class.getName())
+                    .log(Level.SEVERE, null, ex);
         }
     }
 }

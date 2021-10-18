@@ -39,7 +39,7 @@ public class Constants
     /**
      * Build date of the project.
      */
-    public static final String BUILD_DATE = "16 October 2021";
+    public static final String BUILD_DATE = "18 October 2021";
 
     /**
      * Title separator line.

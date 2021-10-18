@@ -31,7 +31,6 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.nio.file.Path;
-import java.util.List;
 
 import static com.bewsoftware.tafe.java3.at2.seven.common.Constants.log;
 
@@ -48,28 +47,27 @@ public class FTClient
     /**
      * Sending CSVFileEvent object.
      *
-     * @param filename       file path of file being sent
+     * @param filePath       source file path of the data being sent
      * @param destinationDir server-side directory to store file in
-     * @param rows           the data to send
+     * @param data           the data to send
      * @param host           SocketServer host name
      * @param port           Server port number
      *
      * @return {@code true} if successful
      */
-    public static boolean sendFile(String filename, String destinationDir,
-            List<String> rows, String host, int port)
+    public static boolean sendFile(Path filePath, String destinationDir,
+            String data, String host, int port)
     {
         boolean rtn = false;
 
         CSVFileEvent fileEvent = new CSVFileEvent();
-        Path filePath = Path.of(filename);
         String fileName = filePath.getFileName().toString();
         String fileDir = filePath.getParent() != null
                 ? filePath.getParent().toString() : "";
         fileEvent.setDestinationDirectory(destinationDir);
         fileEvent.setFilename(fileName);
         fileEvent.setSourceDirectory(fileDir);
-        fileEvent.setFileData(rows.toArray(new String[rows.size()]));
+        fileEvent.setFileData(data);
 
         //Now writing the CSVFileEvent object to socket
         try (Socket socket = new Socket(host, port);

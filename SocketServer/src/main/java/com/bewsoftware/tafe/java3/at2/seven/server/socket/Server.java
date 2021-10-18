@@ -93,10 +93,7 @@ public class Server
                                 Files.newBufferedWriter(filePath, CREATE, WRITE,
                                         TRUNCATE_EXISTING)))
                         {
-                            for (String line : fileEvent.getFileData())
-                            {
-                                fileWriter.println(line);
-                            }
+                            fileWriter.print(fileEvent.getFileData());
                         }
 
                         log("Successfully saved incoming file to: %1$s", filePath);

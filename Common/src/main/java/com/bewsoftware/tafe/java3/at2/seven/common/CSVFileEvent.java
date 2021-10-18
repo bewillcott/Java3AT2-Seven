@@ -49,7 +49,7 @@ public class CSVFileEvent implements Serializable
 
     private String destinationDirectory;
 
-    private String[] fileData;
+    private String fileData;
 
     private String filename;
 
@@ -57,6 +57,7 @@ public class CSVFileEvent implements Serializable
 
     public CSVFileEvent()
     {
+        // NoOp
     }
 
     public String getDestinationDirectory()
@@ -69,12 +70,12 @@ public class CSVFileEvent implements Serializable
         this.destinationDirectory = destinationDirectory;
     }
 
-    public String[] getFileData()
+    public String getFileData()
     {
         return fileData;
     }
 
-    public void setFileData(String[] fileData)
+    public void setFileData(String fileData)
     {
         this.fileData = fileData;
     }

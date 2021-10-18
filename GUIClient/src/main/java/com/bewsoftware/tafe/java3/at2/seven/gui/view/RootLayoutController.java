@@ -32,6 +32,7 @@ import com.bewsoftware.tafe.java3.at2.seven.gui.util.Views;
 import java.beans.PropertyChangeEvent;
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Path;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.event.ActionEvent;
@@ -52,6 +53,8 @@ import javafx.stage.WindowEvent;
 import static com.bewsoftware.tafe.java3.at2.seven.common.Constants.log;
 import static com.bewsoftware.tafe.java3.at2.seven.gui.util.Views.BLANK;
 import static com.bewsoftware.tafe.java3.at2.seven.gui.util.Views.CSVTABLE;
+import static com.bewsoftware.tafe.java3.at2.seven.gui.view.RootLayoutController.FileDialogType.OPEN;
+import static com.bewsoftware.tafe.java3.at2.seven.gui.view.RootLayoutController.FileDialogType.SAVE_AS;
 import static javafx.scene.control.ButtonType.NO;
 import static javafx.scene.control.ButtonType.YES;
 
@@ -65,21 +68,45 @@ import static javafx.scene.control.ButtonType.YES;
  */
 public class RootLayoutController implements ViewController
 {
+
     /**
      * Used by the
-     * {@link #handleOpenMenuItem(javafx.event.ActionEvent) OpenMenuItem}
+     * {@link #handleOpenMenuItem(javafx.event.ActionEvent) OpenMenuItem} and
+     * {@link #handleSaveAsMenuItem(javafx.event.ActionEvent) SaveAsMenuItem}
      * handler.
      *
-     * @param fileChooser
+     * @param fileChooser    to configure
+     * @param fileDialogType to setup for
+     * @param filePath       of current file, if one is open
      */
-    private static void configureFileChooser(final FileChooser fileChooser)
+    private static void configureFileChooser(
+            final FileChooser fileChooser,
+            final FileDialogType fileDialogType, final Path filePath
+    )
     {
-        fileChooser.setTitle("View CSV Files");
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("CSV", "*.csv"));
 
-        fileChooser.getExtensionFilters().addAll(
-                new FileChooser.ExtensionFilter("CSV", "*.csv"),
-                new FileChooser.ExtensionFilter("All files", "*.*")
-        );
+        switch (fileDialogType)
+        {
+            case OPEN ->
+            {
+                fileChooser.setTitle("Open CSV File");
+            }
+
+            case SAVE_AS ->
+            {
+                fileChooser.setTitle("Save As");
+                fileChooser.getExtensionFilters().add(
+                        new FileChooser.ExtensionFilter("All files", "*.*"));
+
+                if (filePath != null)
+                {
+                    fileChooser.setInitialDirectory(filePath.getParent().toFile());
+                    fileChooser.setInitialFileName(filePath.getFileName().toString());
+                }
+            }
+        }
     }
 
     @FXML
@@ -102,10 +129,10 @@ public class RootLayoutController implements ViewController
     private MenuItem saveMenuItem;
 
     @FXML
-    private MenuItem uploadMenuItem;
+    private Label statusLabel;
 
     @FXML
-    private Label statusLabel;
+    private MenuItem uploadMenuItem;
 
     /**
      * Instantiate a new copy of RootLayoutController class.
@@ -143,6 +170,7 @@ public class RootLayoutController implements ViewController
                     {
                         openMenuItem.setDisable(true);
                         closeMenuItem.setDisable(false);
+                        saveAsMenuItem.setDisable(false);
                         uploadMenuItem.setDisable(false);
                     }
 
@@ -164,6 +192,7 @@ public class RootLayoutController implements ViewController
                         {
                             openMenuItem.setDisable(false);
                             closeMenuItem.setDisable(true);
+                            saveAsMenuItem.setDisable(true);
                             uploadMenuItem.setDisable(true);
                         }
 
@@ -179,11 +208,9 @@ public class RootLayoutController implements ViewController
                 if ((boolean) evt.getNewValue())
                 {
                     saveMenuItem.setDisable(false);
-                    saveAsMenuItem.setDisable(false);
                 } else
                 {
                     saveMenuItem.setDisable(true);
-                    saveAsMenuItem.setDisable(true);
                 }
             }
 
@@ -191,7 +218,10 @@ public class RootLayoutController implements ViewController
             {
                 if (evt.getNewValue() != null)
                 {
-                    app.showView(CSVTABLE);
+                    if (evt.getOldValue() == null)
+                    {
+                        app.showView(CSVTABLE);
+                    }
 
                 } else
                 {
@@ -287,7 +317,8 @@ public class RootLayoutController implements ViewController
     private void handleOpenMenuItem(ActionEvent event)
     {
         final FileChooser fileChooser = new FileChooser();
-        configureFileChooser(fileChooser);
+        configureFileChooser(fileChooser, OPEN, null);
+
         File fileName = fileChooser.showOpenDialog(app.getPrimaryStage());
 
         if (fileName != null)
@@ -307,7 +338,8 @@ public class RootLayoutController implements ViewController
     private void handleSaveAsMenuItem(ActionEvent event)
     {
         final FileChooser fileChooser = new FileChooser();
-        configureFileChooser(fileChooser);
+        configureFileChooser(fileChooser, SAVE_AS, app.getFileName());
+
         File fileName = fileChooser.showSaveDialog(app.getPrimaryStage());
 
         if (fileName != null)
@@ -338,8 +370,8 @@ public class RootLayoutController implements ViewController
     @FXML
     private void handleUploadMenuItem(ActionEvent event)
     {
-//        app.saveFile(app.getFileName());
         log("You selected to Upload this file: %1$s", app.getFileName());
+        app.uploadFile();
         event.consume();
     }
 
@@ -382,5 +414,15 @@ public class RootLayoutController implements ViewController
         {
             Logger.getLogger(RootLayoutController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    /**
+     * Used as parameter by
+     * {@link #configureFileChooser(FileChooser, RootLayoutController.FileDialogType, Path)
+     * configureFileChooser} static methods.
+     */
+    enum FileDialogType
+    {
+        OPEN, SAVE_AS
     }
 }

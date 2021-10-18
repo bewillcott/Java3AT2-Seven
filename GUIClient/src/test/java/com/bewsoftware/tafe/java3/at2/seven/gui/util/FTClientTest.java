@@ -27,10 +27,10 @@
 package com.bewsoftware.tafe.java3.at2.seven.gui.util;
 
 import com.bewsoftware.tafe.java3.at2.seven.common.Constants;
-import java.util.Arrays;
-import java.util.List;
+import java.nio.file.Path;
 import org.junit.jupiter.api.*;
 
+import static java.nio.file.Path.of;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 /**
@@ -40,16 +40,13 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class FTClientTest
 {
 
-    private static final String[] CSV_DATA =
-    {
-        "ID,Title,Studio,Status,Sound,Versions,RecRetPrice,Rating,Year,Genre,Aspect",
-        "1,10,Warner Brothers,Out,1.0,\"4:3, LBX, 16:9\",19.98,R,1979,Comedy,2.35:1",
-        "1758,12 Angry Men,MGM/UA,Out,1.0,LBX,19.98,NR,1957,Drama,1.66:1",
-        "3,12 Monkeys: Collector's Edition,Universal,Cancelled,5.1,\"LBX, 16:9\",29.98,R,1995,Drama,1.85:1",
-        "2,12 Monkeys (DTS),Universal,Out,DTS,\"LBX, 16:9\",34.98,R,1995,SciFi,1.85:1",
-        "730,12 Monkeys (Special Edition/ Dolby Digital)/ Jackal,Universal,Out,5.1,\"LBX, 16:9\", 34.98, R, 1978, Action / Adventure, VAR"
-
-    };
+    private static final String CSV_DATA
+            = "ID,Title,Studio,Status,Sound,Versions,RecRetPrice,Rating,Year,Genre,Aspect\n"
+            + "1,10,Warner Brothers,Out,1.0,\"4:3, LBX, 16:9\",19.98,R,1979,Comedy,2.35:1\n"
+            + "1758,12 Angry Men,MGM/UA,Out,1.0,LBX,19.98,NR,1957,Drama,1.66:1\n"
+            + "3,12 Monkeys: Collector's Edition,Universal,Cancelled,5.1,\"LBX, 16:9\",29.98,R,1995,Drama,1.85:1\n"
+            + "2,12 Monkeys (DTS),Universal,Out,DTS,\"LBX, 16:9\",34.98,R,1995,SciFi,1.85:1\n"
+            + "730,12 Monkeys (Special Edition/ Dolby Digital)/ Jackal,Universal,Out,5.1,\"LBX, 16:9\", 34.98, R, 1978, Action / Adventure, VAR\n";
 
     @BeforeAll
     public static void setUpClass()
@@ -82,12 +79,11 @@ public class FTClientTest
     public void testSendFile()
     {
         System.out.println("Testing sendFile");
-        String filename = "TestMovies.csv";
+        Path filePath = of("TestMovies.csv");
         String destinationDir = "downloads";
-        List<String> rows = Arrays.asList(CSV_DATA);
         String host = "localhost";
         int port = Constants.SERVER_PORT;
-        assertTrue(FTClient.sendFile(filename, destinationDir, rows, host, port));
+        assertTrue(FTClient.sendFile(filePath, destinationDir, CSV_DATA, host, port));
     }
 
 }

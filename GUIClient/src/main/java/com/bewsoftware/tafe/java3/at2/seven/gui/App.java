@@ -58,6 +58,10 @@ import static javafx.scene.control.ButtonType.YES;
  */
 public class App extends Application
 {
+    public static final String ACTION_SAVEFILE = "saveFile";
+
+    public static final String ACTION_UPLOADFILE = "uploadFile";
+
     /**
      * Property tag for the active view.
      */
@@ -66,8 +70,6 @@ public class App extends Application
     public static final String PROP_DATAISDIRTY = "dataIsDirty";
 
     public static final String PROP_FILENAME = "fileName";
-
-    public static final String PROP_SAVEFILE = "saveFile";
 
     /**
      * Property tag for the status text.
@@ -267,9 +269,8 @@ public class App extends Application
      */
     public void saveFile(Path saveFile)
     {
-        this.fileName = saveFile;
-        titleFileName = fileName.toFile().getName();
-        propertyChangeSupport.firePropertyChange(PROP_SAVEFILE, null, saveFile);
+        propertyChangeSupport.firePropertyChange(ACTION_SAVEFILE, null, saveFile);
+        setFileName(saveFile);
     }
 
     /**
@@ -313,6 +314,14 @@ public class App extends Application
         this.primaryStage.setTitle(PRODUCT_TITLE);
 
         initRootLayout();
+    }
+
+    /**
+     * Upload the data to a remote file.
+     */
+    public void uploadFile()
+    {
+        propertyChangeSupport.firePropertyChange(ACTION_UPLOADFILE, null, fileName);
     }
 
 }
