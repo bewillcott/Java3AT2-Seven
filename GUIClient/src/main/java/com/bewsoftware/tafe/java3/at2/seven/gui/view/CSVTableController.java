@@ -162,6 +162,7 @@ public class CSVTableController implements ViewController
 
             default ->
             {
+                // To be ignored
             }
         }
     }

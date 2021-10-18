@@ -97,41 +97,6 @@ public class EditFormController
         return update;
     }
 
-    private void buildForm()
-    {
-        // Add Labels to form
-        final Ref<Integer> gridRow = new Ref<>(0);
-
-        columns.forEach(t ->
-        {
-            Label label = new Label(t + ":");
-            editPane.add(label, 0, gridRow.val++);
-        });
-
-        // Add the TextFields with their initial values
-        gridRow.val = 0;
-
-        rowData.forEach(t ->
-        {
-            MyTextField textField = new MyTextField(t);
-            fields.add(textField);
-            editPane.add(textField, 1, gridRow.val++);
-        });
-    }
-
-    /**
-     * Set the value of update
-     *
-     * @param value the value of update
-     */
-    private void setUpdate(boolean value)
-    {
-        boolean oldUpdate = this.update;
-        this.update = value;
-        propertyChangeSupport.firePropertyChange(PROP_UPDATE, oldUpdate, value);
-
-    }
-
     /**
      * Remove PropertyChangeListener.
      *
@@ -155,6 +120,41 @@ public class EditFormController
 
         buildForm();
 
+    }
+
+    /**
+     * Set the value of update
+     *
+     * @param value the value of update
+     */
+    private void setUpdate(boolean value)
+    {
+        boolean oldUpdate = this.update;
+        this.update = value;
+        propertyChangeSupport.firePropertyChange(PROP_UPDATE, oldUpdate, value);
+
+    }
+
+    private void buildForm()
+    {
+        // Add Labels to form
+        final Ref<Integer> gridRow = new Ref<>(0);
+
+        columns.forEach(t ->
+        {
+            Label label = new Label(t + ":");
+            editPane.add(label, 0, gridRow.val++);
+        });
+
+        // Add the TextFields with their initial values
+        gridRow.val = 0;
+
+        rowData.forEach(t ->
+        {
+            MyTextField textField = new MyTextField(t);
+            fields.add(textField);
+            editPane.add(textField, 1, gridRow.val++);
+        });
     }
 
     @FXML

@@ -28,12 +28,14 @@ package com.bewsoftware.tafe.java3.at2.seven.common;
  * ...
  *     Ref&lt;Integer&gt; iRtn = new Ref&lt;&gt;();
  *
- *     if(add(2, 3, iRtn)){
+ *     if(add(2, 3, iRtn))
+ *     {
  *         System.out.println("2 + 3 = " + iRtn.val);
  *     }
  * ...
  *
- * public boolean add(final int a, final int b, final Ref&lt;Integer&gt; iRtn){
+ * public boolean add(final int a, final int b, final Ref&lt;Integer&gt; iRtn)
+ * {
  *     iRtn.val = a + b;
  *
  *     return iRtn.val &gt; 0;  // just something to use up return

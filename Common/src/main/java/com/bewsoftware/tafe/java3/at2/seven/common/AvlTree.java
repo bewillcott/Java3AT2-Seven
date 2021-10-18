@@ -22,7 +22,8 @@ package com.bewsoftware.tafe.java3.at2.seven.common;
 import java.util.*;
 
 /**
- * This is a Binary Search Tree with the default capability of being a Balanced Binary Search Tree.
+ * This is a Binary Search Tree with the default capability of being a Balanced
+ * Binary Search Tree.
  * <p>
  * This class does not support storage of either {@code null}s or duplicates.
  *
@@ -41,7 +42,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     private static final String NO_NULLS = "This class does not support storage of 'null's";
 
     /**
-     * A value indicating whether this {@linkplain  AvlTree}{@literal <T>}is balanced.
+     * A value indicating whether this {@linkplain  AvlTree}{@literal <T>}is
+     * balanced.
      */
     private boolean balanced;
 
@@ -66,8 +68,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     private int version;
 
     /**
-     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>} class as a
-     * Balanced Binary Search Tree.
+     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>}
+     * class as a Balanced Binary Search Tree.
      */
     public AvlTree()
     {
@@ -75,9 +77,9 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     }
 
     /**
-     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>} class as a
-     * Binary Search Tree that will/will not be balanced based on the value of the
-     * parameter: {@code balanced}.
+     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>}
+     * class as a Binary Search Tree that will/will not be balanced based on the
+     * value of the parameter: {@code balanced}.
      *
      * @param balanced if {@code true} tree will be balanced
      */
@@ -87,8 +89,9 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     }
 
     /**
-     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>} class with the contents
-     * of the {@code list} as a Balanced Binary Search Tree.
+     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>}
+     * class with the contents of the {@code list} as a Balanced Binary Search
+     * Tree.
      *
      * @param list the list containing the items to add to this tree
      */
@@ -98,9 +101,10 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     }
 
     /**
-     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>} class, as a
-     * Binary Search Tree that will/will not be balanced based on the value of the
-     * parameter: {@code balanced}, with the contents of the {@code list}.
+     * Initializes a new instance of the {@linkplain  AvlTree}{@literal <E>}
+     * class, as a Binary Search Tree that will/will not be balanced based on
+     * the value of the parameter: {@code balanced}, with the contents of the
+     * {@code list}.
      *
      * @param list     the list containing the items to add to this tree
      * @param balanced if {@code true} tree will be balanced
@@ -126,14 +130,6 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         return internalAdd(e);
     }
 
-//    /**
-//     * Due to the nature of this class, this method is not implemented.
-//     */
-//    @Override
-//    public void add(int index, E element)
-//    {
-//        throw new UnsupportedOperationException(NOT_SUPPORTED); //To change body of generated methods, choose Tools | Templates.
-//    }
     @Override
     public boolean addAll(Collection<? extends E> c)
     {
@@ -148,14 +144,6 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         return rtn;
     }
 
-//    /**
-//     * Due to the nature of this class, this method is not implemented.
-//     */
-//    @Override
-//    public boolean addAll(int index, Collection<? extends E> c)
-//    {
-//        throw new UnsupportedOperationException(NOT_SUPPORTED); //To change body of generated methods, choose Tools | Templates.
-//    }
     @Override
     public void clear()
     {
@@ -191,7 +179,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
      *
      * @param target the element to delete
      *
-     * @return {@code true} unless {@code target} is {@code null}, or {@code target} is not found.
+     * @return {@code true} unless {@code target} is {@code null}, or
+     *         {@code target} is not found.
      */
     public boolean delete(E target)
     {
@@ -255,16 +244,18 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     }
 
     /**
-     * Returns the index of the specified element in this list, or -1 if this list does
-     * not contain the element.
+     * Returns the index of the specified element in this list, or -1 if this
+     * list does not contain the element.
      *
      * @param o element to search for
      *
-     * @return the index of the specified element in this list, or -1 if this list does
-     *         not contain the element
+     * @return the index of the specified element in this list, or -1 if this
+     *         list does not contain the element
      *
-     * @throws ClassCastException   if the type of the specified element is incompatible with this list
-     * @throws NullPointerException if the specified element is null as this list does <b>not</b> permit null
+     * @throws ClassCastException   if the type of the specified element is
+     *                              incompatible with this list
+     * @throws NullPointerException if the specified element is null as this
+     *                              list does <b>not</b> permit null
      *                              elements
      */
     //    @Override
@@ -278,7 +269,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     }
 
     /**
-     * Gets a value indicating whether this {@linkplain  AvlTree}{@literal <T>} is balanced.
+     * Gets a value indicating whether this {@linkplain  AvlTree}{@literal <T>}
+     * is balanced.
      *
      * @return {@code true } if balanced, {@code false } otherwise
      */
@@ -301,28 +293,6 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         return new ATItor<>();
     }
 
-//    @Override
-//    public int lastIndexOf(Object o)
-//    {
-//        return indexOf(o);
-//    }
-//    /**
-//     * Due to the nature of this class, this method is not implemented.
-//     */
-//    @Override
-//    public ListIterator<E> listIterator()
-//    {
-//        throw new UnsupportedOperationException(NOT_SUPPORTED); //To change body of generated methods, choose Tools | Templates.
-//    }
-//
-//    /**
-//     * Due to the nature of this class, this method is not implemented.
-//     */
-//    @Override
-//    public ListIterator<E> listIterator(int index)
-//    {
-//        throw new UnsupportedOperationException(NOT_SUPPORTED); //To change body of generated methods, choose Tools | Templates.
-//    }
     @Override
     @SuppressWarnings("unchecked")
     public boolean remove(Object o)
@@ -335,21 +305,6 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         return delete((E) o);
     }
 
-//    @Override
-//    public E remove(int index)
-//    {
-//        E rtn = null;
-//        Node<E> node = getNodeAt(index);
-//        Ref<Boolean> found = new Ref<>(false);
-//
-//        if (node != null)
-//        {
-//            deleteNode(node, node.Value, found, balanced);
-//            rtn = found.val ? node.Value : null;
-//        }
-//
-//        return rtn;
-//    }
     @Override
     @SuppressWarnings("element-type-mismatch")
     public boolean removeAll(Collection<?> c)
@@ -362,7 +317,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
 
         if (size() > c.size())
         {
-            modified = c.stream().map(this::remove).reduce(modified, (accumulator, item) -> accumulator | item);
+            modified = c.stream().map(this::remove)
+                    .reduce(modified, (accumulator, item) -> accumulator | item);
         } else
         {
             for (Iterator<?> i = iterator(); i.hasNext();)
@@ -400,28 +356,12 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         return modified;
     }
 
-//    /**
-//     * Due to the nature of this class, this method is not implemented.
-//     */
-//    @Override
-//    public E set(int index, E element)
-//    {
-//        throw new UnsupportedOperationException(NOT_SUPPORTED); //To change body of generated methods, choose Tools | Templates.
-//    }
     @Override
     public int size()
     {
         return count > Integer.MAX_VALUE ? Integer.MAX_VALUE : count;
     }
 
-//    /**
-//     * Due to the nature of this class, this method is not implemented.
-//     */
-//    @Override
-//    public List<E> subList(int fromIndex, int toIndex)
-//    {
-//        throw new UnsupportedOperationException(NOT_SUPPORTED); //To change body of generated methods, choose Tools | Templates.
-//    }
     @Override
     public Object[] toArray()
     {
@@ -459,13 +399,13 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     public String toString()
     {
         return "AvlTree{\n"
-               + "  balanced = " + balanced + ",\n"
-               + "  count = " + count + ",\n"
-               + "  lastIndexVersion = " + lastIndexVersion + ",\n"
-               + "  version = " + version + "\n"
-               + "\n"
-               + displayInOrder(root)
-               + "\n}";
+                + "  balanced = " + balanced + ",\n"
+                + "  count = " + count + ",\n"
+                + "  lastIndexVersion = " + lastIndexVersion + ",\n"
+                + "  version = " + version + "\n"
+                + "\n"
+                + displayInOrder(root)
+                + "\n}";
     }
 
     /**
@@ -473,7 +413,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
      *
      * @param current the current Node
      * @param node    the node to add
-     * @param added   {@code true } if successful, {@code false } if already exists
+     * @param added   {@code true } if successful, {@code false } if already
+     *                exists
      *
      * @return replacement parent node
      */
@@ -755,9 +696,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
     /**
      * This is used to add an {@code item } to the tree.
      * <p>
-     * The reason it has been pulled out of the public method, is to allow constructor access
-     * to it, as the public method is a virtual one.
-     * </p>
+     * The reason it has been pulled out of the public method, is to allow
+     * constructor access to it, as the public method is a virtual one.
      *
      * @param item the item to add
      *
@@ -854,7 +794,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
      *
      * @param key the key to search for
      *
-     * @return the {@linkplain Node}{@literal <T>} if found, or {@code null} otherwise
+     * @return the {@linkplain Node}{@literal <T>} if found, or {@code null}
+     *         otherwise
      */
     protected Node<E> find(E key)
     {
@@ -916,7 +857,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
 
             if (index.val != count - 1)
             {
-                throw new ReindexFailedException("Re-indexing has failed: count(" + count + "), index(" + index + ")");
+                throw new ReindexFailedException("Re-indexing has failed: count("
+                        + count + "), index(" + index + ")");
             }
         }
     }
@@ -950,7 +892,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         {
             if (!isExpectedVersion())
             {
-                throw new ConcurrentModificationException(CONCURRENT_MODIFICATION_EXCEPTION_STRING);
+                throw new ConcurrentModificationException(
+                        CONCURRENT_MODIFICATION_EXCEPTION_STRING);
             }
 
             if (--position < 0)
@@ -975,7 +918,7 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
          * String to display when there is a ConcurrentModificationException.
          */
         protected static final String CONCURRENT_MODIFICATION_EXCEPTION_STRING
-                                      = "Another thread has modified the data structure";
+                = "Another thread has modified the data structure";
 
         /**
          * The expected version number.
@@ -983,14 +926,14 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         protected int expectedVersion;
 
         /**
-         * The current position within the list.
-         */
-        protected int position;
-
-        /**
          * The last entry returned.
          */
         protected T lastReturned;
+
+        /**
+         * The current position within the list.
+         */
+        protected int position;
 
         /**
          * Instantiates a new ATItor object.
@@ -1014,7 +957,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         {
             if (!isExpectedVersion())
             {
-                throw new ConcurrentModificationException(CONCURRENT_MODIFICATION_EXCEPTION_STRING);
+                throw new ConcurrentModificationException(
+                        CONCURRENT_MODIFICATION_EXCEPTION_STRING);
             }
 
             if (++position == count)
@@ -1032,7 +976,8 @@ public class AvlTree<E extends Comparable<E>> implements Set<E>
         {
             if (!isExpectedVersion())
             {
-                throw new ConcurrentModificationException(CONCURRENT_MODIFICATION_EXCEPTION_STRING);
+                throw new ConcurrentModificationException(
+                        CONCURRENT_MODIFICATION_EXCEPTION_STRING);
             }
 
             if (lastReturned == null)

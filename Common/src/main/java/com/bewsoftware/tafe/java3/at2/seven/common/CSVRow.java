@@ -37,7 +37,7 @@ import java.util.Objects;
  * data collected over multiple test runs.
  * <p>
  * The original idea for this class came from reading this
- * article/blog:<br/>
+ * article/blog:<br>
  * <a href="https://www.codeproject.com/articles/415732/reading-and-writing-csv-files-in-csharp">
  * reading-and-writing-csv-files-in-csharp</a>
  */

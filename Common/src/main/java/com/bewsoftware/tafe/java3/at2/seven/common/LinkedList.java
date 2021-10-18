@@ -40,7 +40,8 @@ import java.util.Objects;
  * <li><i>This implementation does not allow {@code null } items to be
  * added.</i></li>
  * <li>By default, this implementation allows duplicate items to be added.<br>
- * However, it is possible to change that at instantiation - see: {@linkplain #LinkedList(boolean)
+ * However, it is possible to change that at instantiation - see:
+ * {@linkplain #LinkedList(boolean)
  * }.</li>
  * </ul>
  *
@@ -63,7 +64,8 @@ public class LinkedList<E> implements Externalizable, Iterable<E>
     /**
      * Error message to go with {@link NullPointerException}
      */
-    private static final String NO_NULL = "This implementation does not allow {@code null} items to be added.";
+    private static final String NO_NULL
+            = "This implementation does not allow {@code null} items to be added.";
 
     /**
      * Used by serialization process.
@@ -73,7 +75,7 @@ public class LinkedList<E> implements Externalizable, Iterable<E>
     /**
      * Are duplicate items allowed in this instance of {@linkplain LinkedList }?
      * <p>
-     * @note Once set at instantiation, it cannot be changed.
+     * <b>Note:</b> Once set at instantiation, it cannot be changed.
      */
     private boolean allowDuplicates;
 
@@ -227,15 +229,11 @@ public class LinkedList<E> implements Externalizable, Iterable<E>
      * If found, this becomes the current reference point in the list.
      * <p>
      * <b>Note:</b> This is only useful, if the class used {@literal (<E>) } has
-     * an {@code equals(Object) } method
-     * that only checks for a subset of the classes properties. For example, a
-     * Country
-     * class that includes a list (internally) of cities. If only the country's
-     * {@code name}
-     * property is checked for equality, then using a new Country instance with
-     * the required
-     * name set, would work, returning the internal copy with all the
-     * cities.
+     * an {@code equals(Object) } method that only checks for a subset of the
+     * classes properties. For example, a Country class that includes a list
+     * (internally) of cities. If only the country's {@code name} property is
+     * checked for equality, then using a new Country instance with the required
+     * name set, would work, returning the internal copy with all the cities.
      *
      * @param item to search for
      *
@@ -841,8 +839,7 @@ public class LinkedList<E> implements Externalizable, Iterable<E>
 
     /**
      * This class is used by the {@linkplain LinkedList LinkedList&lt;E&gt;}
-     * class to store the items,
-     * and then be linked together into a chain.
+     * class to store the items, and then be linked together into a chain.
      * <p>
      * This class is a struct alternative.
      *

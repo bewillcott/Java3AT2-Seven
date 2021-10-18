@@ -117,8 +117,6 @@ public class RootLayoutController implements ViewController
     @FXML
     private MenuItem closeMenuItem;
 
-    private Views currentView;
-
     @FXML
     private MenuItem openMenuItem;
 
@@ -157,8 +155,6 @@ public class RootLayoutController implements ViewController
             case App.PROP_ACTIVEVIEW ->
             {
                 // Views being opened:
-                currentView = (Views) evt.getNewValue();
-
                 switch ((Views) evt.getNewValue())
                 {
                     case BLANK ->
@@ -176,6 +172,7 @@ public class RootLayoutController implements ViewController
 
                     default ->
                     {
+                        // That's all
                     }
                 }
 
@@ -186,6 +183,7 @@ public class RootLayoutController implements ViewController
                     {
                         case BLANK ->
                         {
+                            // NoOp
                         }
 
                         case CSVTABLE ->
@@ -198,6 +196,7 @@ public class RootLayoutController implements ViewController
 
                         default ->
                         {
+                            // That's all
                         }
                     }
                 }
@@ -205,13 +204,10 @@ public class RootLayoutController implements ViewController
 
             case App.PROP_DATAISDIRTY ->
             {
-                if ((boolean) evt.getNewValue())
-                {
-                    saveMenuItem.setDisable(false);
-                } else
-                {
-                    saveMenuItem.setDisable(true);
-                }
+                boolean value = (boolean) evt.getNewValue();
+
+                saveMenuItem.setDisable(!value);
+                saveMenuItem.setDisable(value);
             }
 
             case App.PROP_FILENAME ->
@@ -236,6 +232,7 @@ public class RootLayoutController implements ViewController
 
             default ->
             {
+                // NoOp
             }
         }
     }
